@@ -5,6 +5,7 @@ package status_updater
 
 import (
 	"context"
+	"strconv"
 
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -25,8 +26,10 @@ func (su *defaultStatusUpdater) Run(stopCh <-chan struct{}) {
 }
 
 func (su *defaultStatusUpdater) SyncPodGroupsWithPendingUpdates(podGroups []*enginev2alpha2.PodGroup) {
+	usedKeys := make(map[updatePayloadKey]bool, len(podGroups))
 	for i := range podGroups {
 		key := su.keyForPayload(podGroups[i].Name, podGroups[i].Namespace, podGroups[i].UID)
+		usedKeys[key] = true
 		inflightUpdateAny, found := su.inFlightPodGroups.Load(key)
 		if !found {
 			continue
@@ -37,6 +40,14 @@ func (su *defaultStatusUpdater) SyncPodGroupsWithPendingUpdates(podGroups []*eng
 			su.inFlightPodGroups.Delete(key)
 		}
 	}
+
+	// Cleanup podGroups that don't comeup anymore
+	su.inFlightPodGroups.Range(func(key any, _ any) bool {
+		if _, found := usedKeys[key.(updatePayloadKey)]; !found {
+			su.inFlightPodGroups.Delete(key)
+		}
+		return true
+	})
 }
 
 func (su *defaultStatusUpdater) syncPodGroup(inFlightPodGroup, snapshotPodGroup *enginev2alpha2.PodGroup) bool {
@@ -53,9 +64,14 @@ func (su *defaultStatusUpdater) syncPodGroup(inFlightPodGroup, snapshotPodGroup 
 	updatedSchedulingCondition := false
 	lastSchedulingCondition := utils.GetLastSchedulingCondition(inFlightPodGroup)
 	currentLastSchedulingCondition := utils.GetLastSchedulingCondition(snapshotPodGroup)
-	if currentLastSchedulingCondition != nil && lastSchedulingCondition.TransitionID == currentLastSchedulingCondition.TransitionID {
-		updatedSchedulingCondition = true
-	} else {
+	if currentLastSchedulingCondition != nil && lastSchedulingCondition != nil {
+		currentID, currentErr := strconv.Atoi(currentLastSchedulingCondition.TransitionID)
+		lastID, lastErr := strconv.Atoi(lastSchedulingCondition.TransitionID)
+		if currentErr == nil && lastErr == nil && (lastID <= currentID || currentID == 0) {
+			updatedSchedulingCondition = true
+		}
+	}
+	if !updatedSchedulingCondition {
 		snapshotPodGroup.Status.SchedulingConditions = inFlightPodGroup.Status.SchedulingConditions
 	}
 	return staleTimeStampUpdated && updatedSchedulingCondition
