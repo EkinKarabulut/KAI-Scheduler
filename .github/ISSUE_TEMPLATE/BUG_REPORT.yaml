@@ -8,34 +8,34 @@ body:
   - type: textarea
     id: bug
     attributes:
-      label: What happened?:
+      label: What happened?
     validations:
       required: true
   - type: textarea
     id: expectation
     attributes:
-      label: What you expected to happen:
+      label: What you expected to happen
       description: |
     validations:
       required: true
   - type: textarea
     id: steps
     attributes:
-      label: How to reproduce it (as minimally and precisely as possible):
+      label: How to reproduce it (as minimally and precisely as possible)
       description: |
     validations:
       required: true
   - type: textarea
     id: additional
     attributes:
-      label: Anything else we need to know?:
+      label: Anything else we need to know?
       description: |
     validations:
       required: true
   - type: textarea
     id: environment
     attributes:
-      label: Environment:
+      label: Environment Details
       description: |
         - Kubernetes version
         - KAI Scheduler version
