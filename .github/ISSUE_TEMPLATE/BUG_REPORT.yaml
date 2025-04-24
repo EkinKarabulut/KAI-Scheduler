@@ -27,8 +27,6 @@ body:
         - Tools that you are using KAI together with
         - Anything else that is relevant
     validations:
-  - type: input
-    id: votes
+  - type: markdown
     attributes:
-      label: Impacted by this bug?
-      value: Give it a 👍 
+      value: Impacted by this bug? Give it a 👍 below
