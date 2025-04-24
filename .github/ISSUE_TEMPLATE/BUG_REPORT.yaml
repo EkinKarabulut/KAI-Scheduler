@@ -8,40 +8,32 @@ body:
   - type: textarea
     id: bug
     attributes:
-      label: What happened:
-      description: |
+      label: What happened?:
     validations:
       required: true
   - type: textarea
-    id: bug
+    id: expectation
     attributes:
       label: What you expected to happen:
       description: |
     validations:
       required: true
   - type: textarea
-    id: bug
+    id: steps
     attributes:
       label: How to reproduce it (as minimally and precisely as possible):
       description: |
     validations:
       required: true
   - type: textarea
-    id: bug
+    id: additional
     attributes:
       label: Anything else we need to know?:
       description: |
     validations:
       required: true
   - type: textarea
-    id: bug
-    attributes:
-      label: Anything else we need to know?:
-      description: |
-    validations:
-      required: true
-  - type: textarea
-    id: feature
+    id: environment
     attributes:
       label: Environment:
       description: |
