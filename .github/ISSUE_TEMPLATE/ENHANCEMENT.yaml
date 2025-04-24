@@ -24,4 +24,3 @@ body:
     id: votes
     attributes:
       label: Love this feature? Give it a 👍 below
-      value: 👍
