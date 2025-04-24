@@ -20,7 +20,8 @@ body:
       label: Why is this needed?
     validations:
       required: true
-  - type: input
-    id: votes
+  - type: markdown
     attributes:
-      label: Love this feature? Give it a 👍 below
+      value: Love this feature? Give it a 👍 below
+     
+      
