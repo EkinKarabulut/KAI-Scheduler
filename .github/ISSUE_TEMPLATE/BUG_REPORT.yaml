@@ -1,0 +1,52 @@
+name: Bug Report
+description: Report a bug encountered when using KAI Scheduler
+labels: ["kind/bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+  - type: textarea
+    id: bug
+    attributes:
+      label: What happened:
+      description: |
+    validations:
+      required: true
+  - type: textarea
+    id: bug
+    attributes:
+      label: What you expected to happen:
+      description: |
+    validations:
+      required: true
+  - type: textarea
+    id: bug
+    attributes:
+      label: How to reproduce it (as minimally and precisely as possible):
+      description: |
+    validations:
+      required: true
+  - type: textarea
+    id: bug
+    attributes:
+      label: Anything else we need to know?:
+      description: |
+    validations:
+      required: true
+  - type: textarea
+    id: bug
+    attributes:
+      label: Anything else we need to know?:
+      description: |
+    validations:
+      required: true
+  - type: textarea
+    id: feature
+    attributes:
+      label: Environment:
+      description: |
+        - Kubernetes version
+        - KAI Scheduler version
+        - Cloud provider or hardware configuration
+        - Tools that you are using KAI together with
+        - Anything else that is relevant
