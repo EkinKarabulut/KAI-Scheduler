@@ -53,7 +53,6 @@ To start scheduling workloads with KAI Scheduler, please continue to [Quick Star
 ## Support and Getting Help
 We’d love to hear from you! Here's how to reach out:
 
-- Bugs, and Feature Requests: Please open [an issue on GitHub](https://github.com/NVIDIA/KAI-scheduler/issues/new) for anything related to bug reports, or feature suggestions. This helps us track and address them efficiently. Make sure to use the correct template.
-- Technical Questions & Ideas: Please start [a discussion on Github](https://github.com/NVIDIA/KAI-Scheduler/discussions) for any technical support requests & specific ideas.
-- Broader Discussion & Roadmap Topics: For broader conversations—like roadmap discussions, scheduling strategies, or working group coordination—join the [CNCF Slack workspace](https://communityinviter.com/apps/cloud-native/cncf) and drop by the #batch-wg channel.
-
+- Technical Questions, Bugs, and Feature Requests: Please open [an issue on GitHub](https://github.com/NVIDIA/KAI-scheduler/issues/new) for anything related to technical support, bug reports, or feature suggestions. This helps us track and address them efficiently.
+- Announcements & Technical Brainstorming: For in-depth technical discussions, brainstorming sessions, or sharing announcements that benefit from community feedback, please start a discussion on GitHub at [Github Discussions](https://github.com/NVIDIA/KAI-Scheduler/discussions). This space is ideal for exchanging ideas that don’t immediately require a dedicated issue.
+- General Discussion & Roadmap Topics: For broader conversations—like roadmap discussions, scheduling strategies, or working group coordination—join the [CNCF Slack workspace](https://communityinviter.com/apps/cloud-native/cncf) and drop by the #batch-wg channel.
