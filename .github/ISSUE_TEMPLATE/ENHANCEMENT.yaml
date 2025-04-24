@@ -23,5 +23,5 @@ body:
   - type: input
     id: votes
     attributes:
-      label: Love this feature?
-      value: Give it a 👍 We prioritize the features with most 👍
+      label: Love this feature? Give it a 👍 below
+      value: 👍
