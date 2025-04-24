@@ -1,6 +1,6 @@
 name: Enhancement
 description: Suggest an idea for KAI Scheduler
-labels: ["kind/enhancement"]
+labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
