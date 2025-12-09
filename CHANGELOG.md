@@ -6,7 +6,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-## [v0.10.0] - 20250-11-18
+### Added
+- Added support for having the default "preemptibility" per top-owner-type read from the default configs configmap in the pod-grouper
+
+### Fixed
+- Fixed a bug where the snapshot tool would not load topology objects [#720](https://github.com/NVIDIA/KAI-Scheduler/pull/720) [itsomri](https://github.com/itsomri)
+- Operator to conditionally watch ClusterPolicy based on its existence, preventing errors in its absence
+- Fixed confusing resource division log message [#733](https://github.com/NVIDIA/KAI-Scheduler/pull/733) [itsomri](https://github.com/itsomri)
+
+## [v0.10.2] - 2025-11-24
+
+### Fixed
+- Removed the requirement to specify container type for init container gpu fractions [#684](https://github.com/NVIDIA/KAI-Scheduler/pull/684) [itsomri](https://github.com/itsomri)
+- When a status update for a podGroup in the scheduler is flushed due to update conflict, delete the update payload data as well [#691](https://github.com/NVIDIA/KAI-Scheduler/pull/691) [davidLif](https://github.com/davidLif)
+
+## [v0.10.1] - 2025-11-23
+
+### Fixed
+- Fixed scheduler pod group status update conflict [#676](https://github.com/NVIDIA/KAI-Scheduler/pull/676) [davidLif](https://github.com/davidLif) 
+- Fixed gpu request validations for pods [#660](https://github.com/NVIDIA/KAI-Scheduler/pull/660) [itsomri](https://github.com/itsomri)
+
+### Changed
+- Dependabot configuration to update actions in workflows [#651](https://github.com/NVIDIA/KAI-Scheduler/pull/651) [ScottBrenner](https://github.com/ScottBrenner)
+- optimize dependency management by using module cache instead of vendor directory [#645](https://github.com/NVIDIA/KAI-Scheduler/pull/645) [lokielse](https://github.com/lokielse)
+
+## [v0.10.0] - 2025-11-18
 
 ### Added
 - Added parent reference to SubGroup struct in PodGroup CRD to create a hierarchical SubGroup structure
@@ -25,6 +49,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Fixed a bug where ray workloads gang scheduling would ignore `minReplicas` if autoscaling was not set
 - KAI Config wrong statuses when prometheus operand is enabled
 - GPU-Operator v25.10.0 support for CDI enabled environments
+
+## [v0.9.9] - 20250-12-08
+
+### Added
+- Option to configure reservation pods runtime class.
+
+### Fixed
+- Fixed Helm chart compatibility with Helm 4 wait logic to prevent indefinite hangs during deployment readiness checks
 
 ## [v0.9.1] - 20250-09-15
 
