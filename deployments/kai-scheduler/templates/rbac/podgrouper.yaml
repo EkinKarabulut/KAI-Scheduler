@@ -172,6 +172,14 @@ rules:
   - patch
   - update
 - apiGroups:
+  - jobset.x-k8s.io
+  resources:
+  - jobsets
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
   - kubeflow.org
   resources:
   - jaxjobs
@@ -359,6 +367,22 @@ rules:
   resources:
   - pipelineruns/finalizers
   - taskruns/finalizers
+  verbs:
+  - create
+  - patch
+  - update
+- apiGroups:
+  - trainer.kubeflow.org
+  resources:
+  - trainjobs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - trainer.kubeflow.org
+  resources:
+  - trainjobs/finalizers
   verbs:
   - create
   - patch

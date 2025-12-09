@@ -4,6 +4,9 @@
 package kubeflow
 
 import (
+	"strconv"
+
+	v1 "k8s.io/api/core/v1"
 	"k8s.io/kubernetes/pkg/util/slice"
 
 	"github.com/NVIDIA/KAI-scheduler/pkg/scheduler/api/pod_info"
@@ -12,6 +15,10 @@ import (
 
 const (
 	podRoleLabelKey = "training.kubeflow.org/job-role"
+	// jobCompletionIndexAnnotation is the annotation added by Kubernetes to pods
+	// in indexed Jobs. For Kubeflow Trainer v2 TrainJob (which uses JobSet),
+	// index 0 is the coordinator node.
+	jobCompletionIndexAnnotation = "batch.kubernetes.io/job-completion-index"
 )
 
 var (
@@ -48,7 +55,46 @@ func TaskOrderFn(l, r interface{}) int {
 	if !lPodMasterRole && rPodMasterRole {
 		return 1
 	}
+
+	if lLabelExists || rLabelExists {
+		return 0
+	}
+
+	// Index 0 = coordinator (should be preempted last)
+	lIndex := getJobCompletionIndex(lv.Pod)
+	rIndex := getJobCompletionIndex(rv.Pod)
+
+	if lIndex >= 0 || rIndex >= 0 {
+		lIsCoordinator := lIndex == 0
+		rIsCoordinator := rIndex == 0
+
+		if lIsCoordinator && !rIsCoordinator {
+			return -1
+		}
+		if !lIsCoordinator && rIsCoordinator {
+			return 1
+		}
+	}
+
 	return 0
+}
+
+func getJobCompletionIndex(pod *v1.Pod) int {
+	if pod == nil || pod.Annotations == nil {
+		return -1
+	}
+
+	indexStr, exists := pod.Annotations[jobCompletionIndexAnnotation]
+	if !exists {
+		return -1
+	}
+
+	index, err := strconv.Atoi(indexStr)
+	if err != nil {
+		return -1
+	}
+
+	return index
 }
 
 func (pp *kubeflowPlugin) OnSessionClose(_ *framework.Session) {}

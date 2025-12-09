@@ -21,6 +21,7 @@ import (
 	notebookplugin "github.com/NVIDIA/KAI-scheduler/pkg/podgrouper/podgrouper/plugins/kubeflow/notebook"
 	pytorchplugin "github.com/NVIDIA/KAI-scheduler/pkg/podgrouper/podgrouper/plugins/kubeflow/pytorch"
 	tensorflowlugin "github.com/NVIDIA/KAI-scheduler/pkg/podgrouper/podgrouper/plugins/kubeflow/tensorflow"
+	trainjobplugin "github.com/NVIDIA/KAI-scheduler/pkg/podgrouper/podgrouper/plugins/kubeflow/trainjob"
 	xgboostplugin "github.com/NVIDIA/KAI-scheduler/pkg/podgrouper/podgrouper/plugins/kubeflow/xgboost"
 	leader_worker_set "github.com/NVIDIA/KAI-scheduler/pkg/podgrouper/podgrouper/plugins/leaderworkerset"
 	"github.com/NVIDIA/KAI-scheduler/pkg/podgrouper/podgrouper/plugins/podjob"
@@ -169,6 +170,11 @@ func NewDefaultPluginsHub(kubeClient client.Client, searchForLegacyPodGroups,
 			Version: "v1beta1",
 			Kind:    "Notebook",
 		}: notebookplugin.NewNotebookGrouper(defaultGrouper),
+		{
+			Group:   "trainer.kubeflow.org",
+			Version: "v1alpha1",
+			Kind:    "TrainJob",
+		}: trainjobplugin.NewTrainJobGrouper(defaultGrouper),
 		{
 			Group:   "batch",
 			Version: "v1",
