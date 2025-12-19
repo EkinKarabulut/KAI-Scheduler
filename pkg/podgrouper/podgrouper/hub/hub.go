@@ -174,7 +174,7 @@ func NewDefaultPluginsHub(kubeClient client.Client, searchForLegacyPodGroups,
 			Group:   "trainer.kubeflow.org",
 			Version: "v1alpha1",
 			Kind:    "TrainJob",
-		}: trainjobplugin.NewTrainJobGrouper(defaultGrouper),
+		}: trainjobplugin.NewTrainJobGrouper(kubeClient, defaultGrouper),
 		{
 			Group:   "batch",
 			Version: "v1",

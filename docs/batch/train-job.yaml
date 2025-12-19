@@ -1,0 +1,51 @@
+# Copyright 2025 NVIDIA CORPORATION
+# SPDX-License-Identifier: Apache-2.0
+
+# ClusterTrainingRuntime defines reusable training configuration
+apiVersion: trainer.kubeflow.org/v1alpha1
+kind: ClusterTrainingRuntime
+metadata:
+  name: torch-distributed
+spec:
+  podGroupPolicy:
+    kaiScheduler:
+      queue: default-queue
+  mlPolicy:
+    numNodes: 1
+    torch:
+      numProcPerNode: auto
+  template:
+    spec:
+      replicatedJobs:
+      - name: node
+        template:
+          metadata:
+            labels:
+              trainer.kubeflow.org/trainjob-ancestor-step: trainer
+          spec:
+            template:
+              spec:
+                schedulerName: kai-scheduler
+                containers:
+                - name: node
+                  image: ubuntu:latest
+                  args: ["sleep", "infinity"]
+                  resources:
+                    requests:
+                      cpu: "100m"
+                      memory: "128Mi"
+---
+# TrainJob uses the runtime and specifies the number of nodes
+apiVersion: trainer.kubeflow.org/v1alpha1
+kind: TrainJob
+metadata:
+  name: pytorch-distributed
+  annotations:
+    kai.scheduler/queue: default-queue
+spec:
+  runtimeRef:
+    name: torch-distributed
+    kind: ClusterTrainingRuntime
+  trainer:
+    image: ubuntu:latest
+    numNodes: 2  # Creates 2 pods that are gang-scheduled together
