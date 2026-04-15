@@ -59,7 +59,7 @@
     </style>
   </defs>
 
-  <text x="450" y="20" class="title">Queue Priority: Over-Quota Resource Distribution</text>
+  <text x="450" y="20" class="title">Queue Priority: Resource Distribution</text>
 
   <text x="450" y="46" class="plbl">Resource Pool (10 GPUs)</text>
   <rect x="275" y="52" width="350" height="92" class="pool"/>
