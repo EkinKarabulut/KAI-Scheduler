@@ -1,6 +1,6 @@
 # Scheduling Deep Dive
 
-This guide explains how KAI Scheduler's core concepts work together. Each concept has its own [reference documentation](#related-documentation); this guide focuses on **how they interact** and builds up from foundational concepts to advanced behavior.
+This guide explains how KAI Scheduler's core concepts work together. Each concept has its own reference documentation ([queues](../queues/README.md), [priority](../priority/README.md), [fairness](../fairness/README.md), [shards](../operator/scheduling-shards.md)); this guide focuses on **how they interact** and builds up from foundational concepts to advanced behavior.
 
 ## Table of Contents
 - [Queues and Resource Guarantees](#queues-and-resource-guarantees)
