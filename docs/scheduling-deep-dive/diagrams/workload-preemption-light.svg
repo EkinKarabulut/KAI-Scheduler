@@ -88,7 +88,7 @@
       }
       @keyframes wl1po{0%,37%{opacity:0}38%,48%{opacity:1}50%,100%{opacity:0}}
       @keyframes wl1ph{0%,37%{opacity:0}40%,48%{opacity:.85}50%,100%{opacity:0}}
-      @keyframes wl1tf{0%,3%{opacity:0}4%,37%{opacity:1}40%,48%{opacity:.2}52%,78%{opacity:1}84%,100%{opacity:0}}
+      @keyframes wl1tf{0%,2%{opacity:0}3%,37%{opacity:1}40%,48%{opacity:.2}52%,78%{opacity:1}84%,100%{opacity:0}}
       @keyframes wl1s{
         0%{opacity:0;transform:translate(770px,60px)}
         3%,46%{opacity:1;transform:translate(770px,60px)}
@@ -177,9 +177,9 @@
   <g class="running-wl1">
     <rect y="60" class="wf-box wf-running-train"/>
     <rect y="60" width="130" height="80" rx="3" class="preemption-hatch"/>
-    <text x="65" y="92" class="wf-title">train</text>
-    <text x="65" y="112" class="wf-label">(pri: 50)</text>
-    <text x="65" y="128" class="wf-label running-text">Running</text>
+    <text x="65" y="92" class="wf-title" fill="#fff">train</text>
+    <text x="65" y="112" class="wf-label" fill="#dde8f0">(pri: 50)</text>
+    <text x="65" y="128" class="wf-label running-text" fill="#dde8f0">Running</text>
     <text x="65" y="128" class="wf-label preempted-text">Preempted</text>
     <text x="65" y="105" class="preemption-overlay">Preemption</text>
   </g>
