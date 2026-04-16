@@ -16,22 +16,22 @@
       .sl{font-size:11px;fill:#555;font-weight:bold;text-anchor:middle}
       .stl{font-size:9px;fill:#aaa;text-anchor:start}
 
-      .g1{animation:g1a 16s ease-in-out infinite}
-      .g2{animation:g2a 16s ease-in-out infinite}
-      .g3{animation:g3a 16s ease-in-out infinite}
-      .g4{animation:g4a 16s ease-in-out infinite}
-      .g5{animation:g5a 16s ease-in-out infinite}
-      .g6{animation:g6a 16s ease-in-out infinite}
-      .g7{animation:g7a 16s ease-in-out infinite}
-      .g8{animation:g8a 16s ease-in-out infinite}
-      .g9{animation:g9a 16s ease-in-out infinite}
-      .g10{animation:g10a 16s ease-in-out infinite}
+      .g1{animation:g1a 24s ease-in-out infinite}
+      .g2{animation:g2a 24s ease-in-out infinite}
+      .g3{animation:g3a 24s ease-in-out infinite}
+      .g4{animation:g4a 24s ease-in-out infinite}
+      .g5{animation:g5a 24s ease-in-out infinite}
+      .g6{animation:g6a 24s ease-in-out infinite}
+      .g7{animation:g7a 24s ease-in-out infinite}
+      .g8{animation:g8a 24s ease-in-out infinite}
+      .g9{animation:g9a 24s ease-in-out infinite}
+      .g10{animation:g10a 24s ease-in-out infinite}
 
-      .g1 rect,.g2 rect{animation:ch 16s ease-in-out infinite}
-      .g3 rect,.g4 rect{animation:cm 16s ease-in-out infinite}
-      .g5 rect,.g6 rect,.g7 rect{animation:cl 16s ease-in-out infinite}
-      .g8 rect,.g9 rect{animation:chs 16s ease-in-out infinite}
-      .g10 rect{animation:cms 16s ease-in-out infinite}
+      .g1 rect,.g2 rect{animation:ch 24s ease-in-out infinite}
+      .g3 rect,.g4 rect{animation:cm 24s ease-in-out infinite}
+      .g5 rect,.g6 rect,.g7 rect{animation:cl 24s ease-in-out infinite}
+      .g8 rect,.g9 rect{animation:chs 24s ease-in-out infinite}
+      .g10 rect{animation:cms 24s ease-in-out infinite}
 
       @keyframes ch{0%,10%{fill:#888;stroke:#666}16%,81%{fill:#e8706a;stroke:#c0403a}87%,100%{fill:#888;stroke:#666}}
       @keyframes cm{0%,10%{fill:#888;stroke:#666}16%,81%{fill:#e8a84a;stroke:#c0842a}87%,100%{fill:#888;stroke:#666}}
@@ -50,11 +50,11 @@
       @keyframes g9a{0%{opacity:0;transform:translate(485px,98px)}3%,44%{opacity:1;transform:translate(485px,98px)}52%,81%{opacity:1;transform:translate(145px,343px)}87%{opacity:0;transform:translate(145px,343px)}93%,100%{opacity:0;transform:translate(485px,98px)}}
       @keyframes g10a{0%{opacity:0;transform:translate(550px,98px)}3%,46%{opacity:1;transform:translate(550px,98px)}54%,81%{opacity:1;transform:translate(355px,343px)}87%{opacity:0;transform:translate(355px,343px)}93%,100%{opacity:0;transform:translate(550px,98px)}}
 
-      .t1{animation:t1a 16s ease-in-out infinite}
+      .t1{animation:t1a 24s ease-in-out infinite}
       @keyframes t1a{0%,5%{opacity:0}8%,25%{opacity:1}30%,100%{opacity:0}}
-      .t2{animation:t2a 16s ease-in-out infinite}
+      .t2{animation:t2a 24s ease-in-out infinite}
       @keyframes t2a{0%,33%{opacity:0}37%,75%{opacity:1}81%,100%{opacity:0}}
-      .sb{animation:sba 16s ease-in-out infinite}
+      .sb{animation:sba 24s ease-in-out infinite}
       @keyframes sba{0%,24%{opacity:0}28%,54%{opacity:1}58%,100%{opacity:0}}
     </style>
   </defs>
@@ -82,7 +82,7 @@
   <text x="620" y="277" class="stl">Quota</text>
 
   <text x="450" y="192" class="pt t1">Quota: Distributed to all queues regardless of priority</text>
-  <text x="450" y="192" class="pt t2">Surplus: Highest priority first, then split by weight (2:1)</text>
+  <text x="450" y="192" class="pt t2">Over-quota: Highest priority first, then split by weight (2:1)</text>
 
   <rect x="413" y="92" width="200" height="48" class="sbox sb"/>
   <text x="513" y="158" class="sl sb">Surplus (3 GPUs)</text>
