@@ -2,7 +2,13 @@
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/kai-scheduler/KAI-scheduler)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/12064/badge)](https://www.bestpractices.dev/projects/12064)
 
-# KAI Scheduler
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/kai-logo-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/kai-logo-light.png">
+    <img alt="KAI Scheduler" src="docs/assets/kai-logo-light.png" width="550">
+  </picture>
+</p>
 
 KAI Scheduler is a robust, efficient, and scalable [Kubernetes scheduler](https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/) that optimizes GPU resource allocation for AI and machine learning workloads.
 
