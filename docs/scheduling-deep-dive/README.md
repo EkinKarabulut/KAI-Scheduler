@@ -177,6 +177,6 @@ Each scheduling cycle executes these actions in order:
 4. **Preempt** — Intra-queue priority enforcement. Evicts lower-priority preemptible workloads in the same queue.
 5. **StaleGangEviction** — Enforce gang scheduling requirements. Evict jobs that violate their minMember count.
 
-This order is intentional: non-disruptive actions run first (allocate, consolidate), and disruptive actions run only when needed (reclaim, preempt).
+This is the default order: non-disruptive actions run first (allocate, consolidate), and disruptive actions run only when needed (reclaim, preempt). The action set, execution order, and which actions are enabled can be customized per shard via the `actions` field on the `SchedulingShard` CRD — see [Scheduler Configuration Customization](../developer/designs/scheduler-config-customization.md).
 
 For implementation details, see [Action Framework](../developer/action-framework.md).
